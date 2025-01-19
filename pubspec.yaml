@@ -29,9 +29,13 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.6
+  dots_indicator: ^3.0.0
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   flutter_svg: ^2.0.17
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_launcher_icons: ^0.14.3
@@ -56,7 +60,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
@@ -85,9 +88,11 @@ flutter_launcher_icons:
   ios: true
   image_path: "assets/images/app_icon.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
-  
+
 flutter_assets:
   assets_path: assets/images/
   output_path: lib/core/utils
   file_name: app_images.dart
-  field_prefix:
+  field_prefix: null
+flutter_intl:
+  enabled: true

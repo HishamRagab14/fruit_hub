@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_hub_app/constants.dart';
 import 'package:fruits_hub_app/core/widgets/custom_button.dart';
+import 'package:fruits_hub_app/features/authentication/presentation/views/login_view.dart';
 import 'package:fruits_hub_app/features/on_boarding/presentation/views/widgets/custom_dots_indicator.dart';
 import 'package:fruits_hub_app/features/on_boarding/presentation/views/widgets/on_boarding_page_view.dart';
 
@@ -38,7 +39,9 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             child: OnBoardingPageView(
           pageController: pageController,
         )),
-         CustomDotsIndicator(activeIndex: currentPage ==1? true : false,),
+        CustomDotsIndicator(
+          activeIndex: currentPage == 1 ? true : false,
+        ),
         const SizedBox(
           height: 29,
         ),
@@ -47,9 +50,14 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           child: Visibility(
             maintainSize: true,
             maintainAnimation: true,
-            maintainState: true,  
+            maintainState: true,
             visible: currentPage == 1 ? true : false,
-            child: const CustomButton(text: 'ابدأ الان'),
+            child:  CustomButton(
+              text: 'ابدأ الان',
+              onPressed: () {
+                Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+              },
+            ),
           ),
         ),
         const SizedBox(

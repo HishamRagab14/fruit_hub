@@ -16,8 +16,8 @@ final PageController pageController;
       // reverse: true,
       children:  [
         PageViewItem(
-          
-          isVisible: (pageController.hasClients? pageController.page!.round() : 0) ==0 ,
+          isVisible: true,
+          // isVisible: (pageController.hasClients? pageController.page!.round() : 0) ==0 ,
           backgroundImage: Assets.imagesPageViewItem1BackgroundImage,
           image: Assets.imagesPageViewItem1Image,
           subTitle:
@@ -28,7 +28,8 @@ final PageController pageController;
           ),
         ),
         PageViewItem(
-          isVisible: (pageController.hasClients? pageController.page!.round() : 0) != 1,
+          isVisible: false,
+          // isVisible: (pageController.hasClients? pageController.page!.round() : 0) == 1,
           backgroundImage: Assets.imagesPageViewItem2BackgroundImage,
           image: Assets.imagesPageViewItem2Image,
           subTitle:

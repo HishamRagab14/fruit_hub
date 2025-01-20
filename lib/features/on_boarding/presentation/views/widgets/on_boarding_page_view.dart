@@ -31,7 +31,7 @@ final PageController pageController;
           isVisible: false,
           // isVisible: (pageController.hasClients? pageController.page!.round() : 0) == 1,
           backgroundImage: Assets.imagesPageViewItem2BackgroundImage,
-          image: Assets.imagesPageViewItem2Image,
+          image: Assets.imagesPageViewItem2Image, 
           subTitle:
               'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
           title:  Text('ابحث وتسوق',style: TextStyles.bold23.copyWith(color: const Color(0xff0C0D0D)),)

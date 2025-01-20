@@ -24,7 +24,7 @@ final PageController pageController;
               'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
           title:   Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [const Text('مرحبا بك فى ',style:TextStyles.bold23 ,), Text('HUB',style: TextStyles.bold23.copyWith(color: AppColors.primaryColor),), Text('Fruit',style: TextStyles.bold23.copyWith(color: AppColors.secondaryColor),)],
+            children: [const Text('مرحبا بك فى ',style:TextStyles.bold23 ,), Text('HUB',style: TextStyles.bold23.copyWith(color: AppColors.secondaryColor),), Text('Fruit',style: TextStyles.bold23.copyWith(color: AppColors.primaryColor),)],
           ),
         ),
         PageViewItem(
@@ -33,7 +33,7 @@ final PageController pageController;
           image: Assets.imagesPageViewItem2Image,
           subTitle:
               'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
-          title: const Text('ابحث وتسوق',)
+          title:  Text('ابحث وتسوق',style: TextStyles.bold23.copyWith(color: const Color(0xff0C0D0D)),)
         ),
       ],
     );

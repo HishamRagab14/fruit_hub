@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:fruits_hub_app/constants.dart';
 import 'package:fruits_hub_app/core/utils/app_colors.dart';
 import 'package:fruits_hub_app/core/utils/app_text_styles.dart';
+import 'package:fruits_hub_app/core/utils/assets.dart';
 import 'package:fruits_hub_app/core/widgets/custom_button.dart';
 import 'package:fruits_hub_app/core/widgets/custom_text_form_field.dart';
 import 'package:fruits_hub_app/features/authentication/presentation/views/widgets/dont_have_an_account.dart';
 import 'package:fruits_hub_app/features/authentication/presentation/views/widgets/or_divider.dart';
+import 'package:fruits_hub_app/features/authentication/presentation/views/widgets/social_login_button.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -49,6 +51,21 @@ class LoginViewBody extends StatelessWidget {
             const DonotHaveAnAccount(),
             const SizedBox(height: 33),
             const OrDivider(),
+            const SizedBox(height: 16,),
+            const SocialLoginButton(
+              image: Assets.imagesGoogleIcon,
+              title: 'تسجيل بواسطة جوجل',
+            ),
+            const SizedBox(height:16 ,),
+            const SocialLoginButton(
+              image: Assets.imagesAppleIcon,
+              title: 'تسجيل بواسطة أبل',
+            ),
+            const SizedBox(height: 16,),  
+            const SocialLoginButton(
+              image: Assets.imagesFacebookIcon,
+              title: 'تسجيل بواسطة فيسبوك',
+            ),
           ],
         ),
       ),

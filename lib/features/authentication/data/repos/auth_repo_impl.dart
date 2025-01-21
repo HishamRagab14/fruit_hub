@@ -28,7 +28,7 @@ class AuthRepoImpl extends AuthRepo {
     } catch (e) {
       return Left(
         ServerFailure(
-          'An error occurred while creating the user.',
+          'حدث خطأ أثناء إنشاء الحساب.',
         ),
       );
     }

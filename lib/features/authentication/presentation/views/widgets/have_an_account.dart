@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_hub_app/core/utils/app_colors.dart';
 import 'package:fruits_hub_app/core/utils/app_text_styles.dart';
-import 'package:fruits_hub_app/features/authentication/presentation/views/login_view.dart';
 
 class HaveAnAccount extends StatelessWidget {
   const HaveAnAccount({super.key});
@@ -17,7 +16,7 @@ class HaveAnAccount extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Navigator.of(context).pushNamed(LoginView.routeName);
+            Navigator.of(context).pop();
           },
           child: Text(
             'تسجيل دخول',

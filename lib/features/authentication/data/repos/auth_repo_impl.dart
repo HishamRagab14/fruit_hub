@@ -53,4 +53,22 @@ class AuthRepoImpl extends AuthRepo {
       return left(ServerFailure('حدث خطأ أثناء تسجيل الدخول.'));
     }
   }
+  
+  @override
+  Future<Either<Failure, UserEntity>> signinWithGoogle() async{
+    try{
+      var user = await firebaseAuthService.signInWithGoogle();
+      return Right(
+        UserModel.fromFirebaseUser(user),
+      );
+    } on CustomException catch (e) {
+      return Left(
+        ServerFailure(e.message),
+      );
+  } catch (e) {
+    log(    
+        'Exception in authRepoImpl.signinWithGoogle: $e');
+    return Left(ServerFailure('حدث خطأ أثناء تسجيل الدخول.'));
+  }
+}
 }

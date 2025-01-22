@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:fruits_hub_app/core/errors/exceptions.dart';
 import 'package:fruits_hub_app/core/errors/failures.dart';
@@ -26,6 +28,7 @@ class AuthRepoImpl extends AuthRepo {
         ),
       );
     } catch (e) {
+      log('Exception in authRepoImpl.createUserWithEmailAndPassword: $e');
       return Left(
         ServerFailure(
           'حدث خطأ أثناء إنشاء الحساب.',

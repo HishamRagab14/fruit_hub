@@ -53,10 +53,10 @@ class AuthRepoImpl extends AuthRepo {
       return left(ServerFailure('حدث خطأ أثناء تسجيل الدخول.'));
     }
   }
-  
+
   @override
-  Future<Either<Failure, UserEntity>> signinWithGoogle() async{
-    try{
+  Future<Either<Failure, UserEntity>> signinWithGoogle() async {
+    try {
       var user = await firebaseAuthService.signInWithGoogle();
       return Right(
         UserModel.fromFirebaseUser(user),
@@ -65,10 +65,22 @@ class AuthRepoImpl extends AuthRepo {
       return Left(
         ServerFailure(e.message),
       );
-  } catch (e) {
-    log(    
-        'Exception in authRepoImpl.signinWithGoogle: $e');
-    return Left(ServerFailure('حدث خطأ أثناء تسجيل الدخول.'));
+    } catch (e) {
+      log('Exception in authRepoImpl.signinWithGoogle: $e');
+      return Left(ServerFailure('حدث خطأ أثناء تسجيل الدخول.'));
+    }
   }
-}
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithFacebook() async {
+    try {
+      var user = await firebaseAuthService.signInWithFacebook();
+      return right(
+        UserModel.fromFirebaseUser(user),
+      );
+    } catch (e) {
+      log('Exception in authRepoImpl.signInWithFacebook: $e');
+      return left(ServerFailure('حدث خطأ أثناء تسجيل الدخول.'));
+    }
+  }
 }

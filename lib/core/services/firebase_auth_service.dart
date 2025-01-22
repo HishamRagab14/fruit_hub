@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:fruits_hub_app/core/errors/exceptions.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -55,23 +56,35 @@ class FirebaseAuthService {
 
   Future<User> signInWithGoogle() async {
     try {
-  final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-  
-  final GoogleSignInAuthentication? googleAuth =
-      await googleUser?.authentication;
-  
-  final credential = GoogleAuthProvider.credential(
-    accessToken: googleAuth?.accessToken,
-    idToken: googleAuth?.idToken,
-  );
-  
-  return (await FirebaseAuth.instance.signInWithCredential(credential)).user!;
-} on FirebaseAuthException catch (e) {
-  if(e.code == 'account-exists-with-different-credential'){
-    throw CustomException(message: 'حساب موجود بالفعل.');
-  } else {
-    throw CustomException(message: 'حدث خطأ أثناء تسجيل الدخول.');
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      return (await FirebaseAuth.instance.signInWithCredential(credential))
+          .user!;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'account-exists-with-different-credential') {
+        throw CustomException(message: 'حساب موجود بالفعل.');
+      } else {
+        throw CustomException(message: 'حدث خطأ أثناء تسجيل الدخول.');
+      }
+    }
   }
-}
+
+  Future<User> signInWithFacebook() async {
+    final LoginResult loginResult = await FacebookAuth.instance.login();
+
+    final OAuthCredential facebookAuthCredential =
+        FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
+    return (await FirebaseAuth.instance
+            .signInWithCredential(facebookAuthCredential))
+        .user!;
   }
 }

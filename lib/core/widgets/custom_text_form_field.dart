@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:fruits_hub_app/core/utils/app_text_styles.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({super.key, required this.hintText, required this.textInputType, this.suffixIcon, this.onSaved,});
+  const CustomTextFormField({super.key, required this.hintText, required this.textInputType, this.suffixIcon, this.onSaved,  this.isObsecure = false,});
   final String hintText;
   final TextInputType textInputType;
   final Widget? suffixIcon;
   final Function(String?)? onSaved;
+  final bool isObsecure;
+  
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: isObsecure,
       onSaved: onSaved,
       validator: (value) {
         if (value == null || value.isEmpty) {

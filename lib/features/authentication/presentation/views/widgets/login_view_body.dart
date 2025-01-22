@@ -24,6 +24,7 @@ class LoginViewBody extends StatelessWidget {
               height: 24,
             ),
             const CustomTextFormField(
+              isObsecure: false,
               hintText: 'البريد الالكتروني',
               textInputType: TextInputType.emailAddress,
             ),
@@ -31,6 +32,7 @@ class LoginViewBody extends StatelessWidget {
               height: 16,
             ),
             const CustomTextFormField(
+              isObsecure: false,
               hintText: 'كلمة المرور',
               textInputType: TextInputType.visiblePassword,
               suffixIcon: Icon(

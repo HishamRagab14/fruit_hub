@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_hub_app/constants.dart';
 import 'package:fruits_hub_app/core/services/shared_preference_singleton.dart';
 import 'package:fruits_hub_app/core/utils/app_text_styles.dart';
-import 'package:fruits_hub_app/features/authentication/presentation/views/login_view.dart';
+import 'package:fruits_hub_app/features/authentication/presentation/views/signin_view.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem(
@@ -48,7 +48,7 @@ class PageViewItem extends StatelessWidget {
                     onTap: () {
                       Prefs.setBool(kIsOnBoardingViewSeen, true);
                       Navigator.of(context)
-                          .pushReplacementNamed(LoginView.routeName);
+                          .pushReplacementNamed(SignView.routeName);
                     },
                     child: Text(
                       'تخط',

@@ -14,7 +14,7 @@ class AuthRepoImpl extends AuthRepo {
   AuthRepoImpl({required this.firebaseAuthService});
   @override
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(
-      String email, String password,String name) async {
+      String email, String password, String name) async {
     try {
       var user = await firebaseAuthService.createUserWithEmailAndPassword(
           email: email, password: password);
@@ -34,6 +34,23 @@ class AuthRepoImpl extends AuthRepo {
           'حدث خطأ أثناء إنشاء الحساب.',
         ),
       );
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      var user = await firebaseAuthService.signInWithEmailAndPassword(
+          email: email, password: password);
+      return Right(
+        UserModel.fromFirebaseUser(user),
+      );
+    } on CustomException catch (e) {
+      return left(ServerFailure(e.message));
+    } catch (e) {
+      log('Exception in authRepoImpl.signInWithEmailAndPassword: $e');
+      return left(ServerFailure('حدث خطأ أثناء تسجيل الدخول.'));
     }
   }
 }

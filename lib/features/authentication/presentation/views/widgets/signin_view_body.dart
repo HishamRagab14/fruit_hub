@@ -5,6 +5,7 @@ import 'package:fruits_hub_app/core/utils/app_colors.dart';
 import 'package:fruits_hub_app/core/utils/app_text_styles.dart';
 import 'package:fruits_hub_app/core/utils/assets.dart';
 import 'package:fruits_hub_app/core/widgets/custom_button.dart';
+import 'package:fruits_hub_app/core/widgets/custom_password_text_field.dart';
 import 'package:fruits_hub_app/core/widgets/custom_text_form_field.dart';
 import 'package:fruits_hub_app/features/authentication/presentation/manager/signin_cubit/signin_cubit.dart';
 import 'package:fruits_hub_app/features/authentication/presentation/views/widgets/dont_have_an_account.dart';
@@ -47,17 +48,17 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               const SizedBox(
                 height: 16,
               ),
-               CustomTextFormField(
+               CustomPasswordTextFormField(
                 onSaved: (value){
                   password = value!;
                 },
-                isObsecure: false,
-                hintText: 'كلمة المرور',
-                textInputType: TextInputType.visiblePassword,
-                suffixIcon: const Icon(
-                  Icons.remove_red_eye,
-                  color: Color(0xffC9CECF),
-                ),
+                // isObsecure: false,
+                // hintText: 'كلمة المرور',
+                // textInputType: TextInputType.visiblePassword,
+                // suffixIcon: const Icon(
+                //   Icons.remove_red_eye,
+                //   color: Color(0xffC9CECF),
+                // ),
               ),
               const SizedBox(height: 16),
               Text(

@@ -44,13 +44,19 @@ class FirebaseAuthService {
           .signInWithEmailAndPassword(email: email, password: password);
       return credential.user!;
     } on FirebaseAuthException catch (e) {
+      log('Exception in FirebaseAuthService.signInWithEmailAndPassword: $e and code is  ${e.code}');
       if (e.code == 'user-not-found') {
         throw CustomException(
             message: 'الرقم السرى أو البريد الاليكترونى غير صحيح.');
       } else if (e.code == 'wrong-password') {
         throw CustomException(
             message: 'الرقم السرى أو البريد الاليكترونى غير صحيح.');
-      } else {
+      } else if (e.code == 'invalid-credential') {
+        throw CustomException(
+            message: 'الرقم السرى أو البريد الاليكترونى غير صحيح.');
+      } 
+      else {
+        log('Exception in FirebaseAuthService.signInWithEmailAndPassword: $e');
         throw CustomException(message: 'حدث خطأ أثناء تسجيل الدخول.');
       }
     } catch (e) {

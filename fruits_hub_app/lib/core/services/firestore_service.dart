@@ -17,6 +17,4 @@ class FirestoreService implements DatabaseService {
     var data = await firestore.collection(path).doc(uId).get();
     return UserModel.fromJson(data.data() as Map<String, dynamic>);
   }
-
- 
 }

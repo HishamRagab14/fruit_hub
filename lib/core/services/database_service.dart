@@ -1,10 +1,10 @@
-import 'package:fruits_hub_app/features/authentication/domain/entites/user_entity.dart';
 
 abstract class DatabaseService {
 
   Future<void> addData(
-      {required String path, required Map<String, dynamic> data});
-  Future<UserEntity> getData({required String path, required String uId});
+      {required String path, required Map<String, dynamic> data, String? documentId});
+  Future<Map<String, dynamic>> getData({required String path, required String documentId});
+  Future<bool> checkIfDataExists({required String path, required String documentId});
 }
 
 

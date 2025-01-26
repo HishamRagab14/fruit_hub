@@ -10,10 +10,6 @@ class Assets {
   /// assets/images/apple_icon.svg
   static const String imagesAppleIcon = "assets/images/apple_icon.svg";
 
-  /// Assets for imagesAvatar
-  /// assets/images/avatar.png
-  static const String imagesAvatar = "assets/images/avatar.png";
-
   /// Assets for imagesAvatar2
   /// assets/images/avatar2.svg
   static const String imagesAvatar2 = "assets/images/avatar2.svg";
@@ -21,6 +17,10 @@ class Assets {
   /// Assets for imagesFacebookIcon
   /// assets/images/facebook_icon.svg
   static const String imagesFacebookIcon = "assets/images/facebook_icon.svg";
+
+  /// Assets for imagesFeaturedItem
+  /// assets/images/featured_item.svg
+  static const String imagesFeaturedItem = "assets/images/featured_item.svg";
 
   /// Assets for imagesGoogleIcon
   /// assets/images/google_icon.svg
@@ -58,8 +58,24 @@ class Assets {
   /// assets/images/profile_image.png
   static const String imagesProfileImage = "assets/images/profile_image.png";
 
+  /// Assets for imagesSearchNormal
+  /// assets/images/search-normal.svg
+  static const String imagesSearchNormal = "assets/images/search-normal.svg";
+
+  /// Assets for imagesSetting4
+  /// assets/images/setting-4.svg
+  static const String imagesSetting4 = "assets/images/setting-4.svg";
+
   /// Assets for imagesSplashBubble
   /// assets/images/splash_bubble.svg
   static const String imagesSplashBubble = "assets/images/splash_bubble.svg";
+
+  /// Assets for imagesWaterMelonTest
+  /// assets/images/water_melon_test.png
+  static const String imagesWaterMelonTest = "assets/images/water_melon_test.png";
+
+  /// Assets for imagesWaterMelonTest1
+  /// assets/images/water_melon_test1.svg
+  static const String imagesWaterMelonTest1 = "assets/images/water_melon_test1.svg";
 }
 

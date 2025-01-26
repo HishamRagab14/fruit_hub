@@ -70,6 +70,10 @@ class Assets {
   /// assets/images/splash_bubble.svg
   static const String imagesSplashBubble = "assets/images/splash_bubble.svg";
 
+  /// Assets for imagesWaterMelon
+  /// assets/images/water_melon.png
+  static const String imagesWaterMelon = "assets/images/water_melon.png";
+
   /// Assets for imagesWaterMelonTest
   /// assets/images/water_melon_test.png
   static const String imagesWaterMelonTest = "assets/images/water_melon_test.png";

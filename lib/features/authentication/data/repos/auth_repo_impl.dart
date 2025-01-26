@@ -26,8 +26,9 @@ class AuthRepoImpl extends AuthRepo {
           email: email, password: password);
       var userEntity = UserEntity(name: name, email: email, uId: user.uid);
       await addUserData(user: userEntity);
+      var fetchedUser = await getUserData(uId: user.uid);
       return Right(
-        userEntity,
+        fetchedUser,
       );
     } on CustomException catch (e) {
       await deleteUser(user);
@@ -58,7 +59,9 @@ class AuthRepoImpl extends AuthRepo {
     try {
       var user = await firebaseAuthService.signInWithEmailAndPassword(
           email: email, password: password);
+          log('User signed in successfully: ${user.uid}');
       var userEntity = await getUserData(uId: user.uid);
+       log('User data retrieved: ${userEntity.name}, ${userEntity.email}');
 
       return Right(
         // UserModel.fromFirebaseUser(user),
@@ -156,6 +159,7 @@ class AuthRepoImpl extends AuthRepo {
   Future<UserEntity> getUserData({required String uId}) async {
     var user = await databaseService.getData(
         path: BackendEndpoint.getUsersData, documentId: uId);
+        log('Fetched user data from Firestore: $user');
     return UserModel.fromJson(user);
   }
 }

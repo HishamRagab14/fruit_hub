@@ -2,6 +2,22 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesActiveCart
+  /// assets/images/active_cart.svg
+  static const String imagesActiveCart = "assets/images/active_cart.svg";
+
+  /// Assets for imagesActiveElement
+  /// assets/images/active_element.svg
+  static const String imagesActiveElement = "assets/images/active_element.svg";
+
+  /// Assets for imagesActiveHome
+  /// assets/images/active_home.svg
+  static const String imagesActiveHome = "assets/images/active_home.svg";
+
+  /// Assets for imagesActivePerson
+  /// assets/images/active_person.svg
+  static const String imagesActivePerson = "assets/images/active_person.svg";
+
   /// Assets for imagesAppIcon
   /// assets/images/app_icon.png
   static const String imagesAppIcon = "assets/images/app_icon.png";
@@ -14,6 +30,10 @@ class Assets {
   /// assets/images/avatar2.svg
   static const String imagesAvatar2 = "assets/images/avatar2.svg";
 
+  /// Assets for imagesElement3
+  /// assets/images/element-3.svg
+  static const String imagesElement3 = "assets/images/element-3.svg";
+
   /// Assets for imagesFacebookIcon
   /// assets/images/facebook_icon.svg
   static const String imagesFacebookIcon = "assets/images/facebook_icon.svg";
@@ -25,6 +45,10 @@ class Assets {
   /// Assets for imagesGoogleIcon
   /// assets/images/google_icon.svg
   static const String imagesGoogleIcon = "assets/images/google_icon.svg";
+
+  /// Assets for imagesHome
+  /// assets/images/home.svg
+  static const String imagesHome = "assets/images/home.svg";
 
   /// Assets for imagesLogo
   /// assets/images/logo.svg
@@ -50,6 +74,10 @@ class Assets {
   /// assets/images/page_view_item2_image.svg
   static const String imagesPageViewItem2Image = "assets/images/page_view_item2_image.svg";
 
+  /// Assets for imagesPerson
+  /// assets/images/person.svg
+  static const String imagesPerson = "assets/images/person.svg";
+
   /// Assets for imagesPlant
   /// assets/images/plant.svg
   static const String imagesPlant = "assets/images/plant.svg";
@@ -65,6 +93,10 @@ class Assets {
   /// Assets for imagesSetting4
   /// assets/images/setting-4.svg
   static const String imagesSetting4 = "assets/images/setting-4.svg";
+
+  /// Assets for imagesShoppingCart
+  /// assets/images/shopping-cart.svg
+  static const String imagesShoppingCart = "assets/images/shopping-cart.svg";
 
   /// Assets for imagesSplashBubble
   /// assets/images/splash_bubble.svg

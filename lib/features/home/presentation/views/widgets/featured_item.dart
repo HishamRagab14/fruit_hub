@@ -14,24 +14,36 @@ class FeaturedItem extends StatelessWidget {
     return SizedBox(
       width: itemWidth,
       child: AspectRatio(
-        aspectRatio: 342/158,
+        aspectRatio: 342 / 158,
         child: Stack(
           children: [
-            Image.asset(Assets.imagesWaterMelonTest),
+            Positioned(
+              left: 0,
+              bottom: 0,
+              top: 10,
+              right: itemWidth * 0.4,
+              child: Image.asset(
+                Assets.imagesWaterMelonTest,
+              ),
+            ),
             Container(
-              width: itemWidth/2,
+              width: itemWidth * 0.5,
               decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: Svg(Assets.imagesFeaturedItem),
-                  fit: BoxFit.fill
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(4),
+                  bottomRight: Radius.circular(4),
                 ),
+                image: DecorationImage(
+                    image: Svg(Assets.imagesFeaturedItem), fit: BoxFit.fill),
               ),
               child: Padding(
                 padding: const EdgeInsets.only(right: 33),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 25,),
+                    const SizedBox(
+                      height: 25,
+                    ),
                     Text(
                       'عروض العيد',
                       style: TextStyles.regular13.copyWith(
@@ -45,10 +57,13 @@ class FeaturedItem extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    const SizedBox(height: 11,),
-                    
+                    const SizedBox(
+                      height: 11,
+                    ),
                     const FeaturedItemButton(),
-                    const SizedBox(height: 29,),
+                    const SizedBox(
+                      height: 29,
+                    ),
                   ],
                 ),
               ),

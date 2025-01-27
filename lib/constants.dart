@@ -4,3 +4,4 @@ const kIsOnBoardingViewSeen = 'isOnBoardingViewSeen';
 const kName = 'name';
 const kEmail = 'email';
 const kUId = 'uId';
+const kUser = 'userData';

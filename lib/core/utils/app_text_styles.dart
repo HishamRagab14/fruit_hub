@@ -39,7 +39,7 @@ abstract class TextStyles {
     fontWeight: FontWeight.bold,
     fontSize: 28,
   );
-
+  
   static const TextStyle regular22 = TextStyle(
     fontWeight: FontWeight.normal,
     fontSize: 22,

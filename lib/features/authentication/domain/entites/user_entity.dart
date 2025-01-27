@@ -1,4 +1,3 @@
-import 'package:fruits_hub_app/constants.dart';
 
 class UserEntity {
   final String name;
@@ -6,12 +5,5 @@ class UserEntity {
   final String uId;
 
   UserEntity({required this.name, required this.email, required this.uId});
-  toMap(){
-    return {
-      kName : name,
-      kEmail: email,
-      kUId : uId,
-    };
 
-  }
 }

@@ -1,11 +1,14 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fruits_hub_app/constants.dart';
 import 'package:fruits_hub_app/core/errors/exceptions.dart';
 import 'package:fruits_hub_app/core/errors/failures.dart';
 import 'package:fruits_hub_app/core/services/database_service.dart';
 import 'package:fruits_hub_app/core/services/firebase_auth_service.dart';
+import 'package:fruits_hub_app/core/services/shared_preference_singleton.dart';
 import 'package:fruits_hub_app/core/utils/backend_endpoint.dart';
 import 'package:fruits_hub_app/features/authentication/data/models/user_model.dart';
 import 'package:fruits_hub_app/features/authentication/domain/entites/user_entity.dart';
@@ -27,6 +30,7 @@ class AuthRepoImpl extends AuthRepo {
       var userEntity = UserEntity(name: name, email: email, uId: user.uid);
       await addUserData(user: userEntity);
       var fetchedUser = await getUserData(uId: user.uid);
+      await saveUserData(user: userEntity);
       return Right(
         fetchedUser,
       );
@@ -59,9 +63,9 @@ class AuthRepoImpl extends AuthRepo {
     try {
       var user = await firebaseAuthService.signInWithEmailAndPassword(
           email: email, password: password);
-          log('User signed in successfully: ${user.uid}');
       var userEntity = await getUserData(uId: user.uid);
-       log('User data retrieved: ${userEntity.name}, ${userEntity.email}');
+      await saveUserData(user: userEntity);
+      log('message: User data saved successfully. User ID: ${user.uid} User Name: ${userEntity.name} User Email: ${userEntity.email}');
 
       return Right(
         // UserModel.fromFirebaseUser(user),
@@ -150,7 +154,7 @@ class AuthRepoImpl extends AuthRepo {
   Future addUserData({required UserEntity user}) async {
     await databaseService.addData(
       path: BackendEndpoint.addUsersData,
-      data: user.toMap(),
+      data: UserModel.fromEntity(user).toMap(),
       documentId: user.uId,
     );
   }
@@ -159,7 +163,15 @@ class AuthRepoImpl extends AuthRepo {
   Future<UserEntity> getUserData({required String uId}) async {
     var user = await databaseService.getData(
         path: BackendEndpoint.getUsersData, documentId: uId);
-        log('Fetched user data from Firestore: $user');
+    log('Fetched user data from Firestore: $user');
     return UserModel.fromJson(user);
+  }
+
+  @override
+  Future saveUserData({required UserEntity user}) async {
+    var jsonData = jsonEncode(
+      UserModel.fromEntity(user).toMap(),
+    );
+    await Prefs.setString(kUser, jsonData);
   }
 }

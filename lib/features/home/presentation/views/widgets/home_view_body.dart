@@ -7,7 +7,9 @@ import 'package:fruits_hub_app/features/home/presentation/views/widgets/custom_h
 import 'package:fruits_hub_app/features/home/presentation/views/widgets/featured_list.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,6 @@ class HomeViewBody extends StatelessWidget {
                   height: 12,
                 ),
                 BestSellerHeader(),
-
               ],
             ),
           ),
@@ -44,7 +45,6 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           BestSellerGridView(),
-        
         ],
       ),
     );

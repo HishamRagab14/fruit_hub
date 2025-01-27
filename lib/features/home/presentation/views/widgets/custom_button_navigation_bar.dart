@@ -6,10 +6,12 @@ class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key});
 
   @override
-  State<CustomBottomNavigationBar> createState() => _CustomBottomNavigationBarState();
+  State<CustomBottomNavigationBar> createState() =>
+      _CustomBottomNavigationBarState();
 }
 
-class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
+    with SingleTickerProviderStateMixin {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -35,18 +37,38 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       ),
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: bottomNavigationBarItems.asMap().entries.map((e){
+        children: bottomNavigationBarItems.asMap().entries.map((e) {
           var index = e.key;
           var entity = e.value;
-          return NavigationBarItem(
-            isActive: selectedIndex == index,
-            bottomNavigationBarEntity: entity,
+          return Expanded(
+            flex: selectedIndex == index ? 3 : 2,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                transitionBuilder: (child, animation) {
+                  return ScaleTransition(
+                    scale: animation,
+                    child: child,
+                  );
+                },
+                child: NavigationBarItem(
+                  key: ValueKey(selectedIndex==index),
+                  isActive: selectedIndex == index,
+                  bottomNavigationBarEntity: entity,
+                ),
+              ),
+            ),
           );
         }).toList(),
 
         // children: bottomNavigationBarItems.map((e) {
         //   return NavigationBarItem(
-        //     isActive: false,                    هنـــــــــــــــا مفيـــــــــــــــش انديكس  
+        //     isActive: false,                    هنـــــــــــــــا مفيـــــــــــــــش انديكس
         //     bottomNavigationBarEntity: e,
         //   );
         // }).toList(),
@@ -54,9 +76,3 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     );
   }
 }
-
-
-
-
-
-

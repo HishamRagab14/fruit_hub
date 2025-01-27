@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:fruits_hub_app/features/home/domain/entities/bottom_navigation_bar_entity.dart';
 import 'package:fruits_hub_app/features/home/presentation/views/widgets/navigation_bar_item.dart';
 
-class CustomBottomNavigationBar extends StatelessWidget {
+class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key});
 
+  @override
+  State<CustomBottomNavigationBar> createState() => _CustomBottomNavigationBarState();
+}
+
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,12 +35,21 @@ class CustomBottomNavigationBar extends StatelessWidget {
       ),
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: bottomNavigationBarItems.map((e) {
+        children: bottomNavigationBarItems.asMap().entries.map((e){
+          var index = e.key;
+          var entity = e.value;
           return NavigationBarItem(
-            isActive: false,
-            bottomNavigationBarEntity: e,
+            isActive: selectedIndex == index,
+            bottomNavigationBarEntity: entity,
           );
         }).toList(),
+
+        // children: bottomNavigationBarItems.map((e) {
+        //   return NavigationBarItem(
+        //     isActive: false,                    هنـــــــــــــــا مفيـــــــــــــــش انديكس  
+        //     bottomNavigationBarEntity: e,
+        //   );
+        // }).toList(),
       ),
     );
   }

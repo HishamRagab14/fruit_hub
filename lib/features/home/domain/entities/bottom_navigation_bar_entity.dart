@@ -9,7 +9,8 @@ class BottomNavigationBarEntity {
       required this.activeImage,
       required this.inActiveImage});
 
-  List<BottomNavigationBarEntity> get bottomNavigationBarItems => [
+}
+List<BottomNavigationBarEntity> get bottomNavigationBarItems => [
         BottomNavigationBarEntity(
           name: 'الرئيسية',
           activeImage: Assets.imagesActiveHome,
@@ -31,4 +32,3 @@ class BottomNavigationBarEntity {
           inActiveImage: Assets.imagesPerson,
         ),
       ];
-}

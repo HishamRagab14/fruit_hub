@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fruits_hub_app/core/entities/product_entity.dart';
 import 'package:fruits_hub_app/core/utils/app_colors.dart';
 import 'package:fruits_hub_app/core/utils/app_text_styles.dart';
-import 'package:fruits_hub_app/core/utils/assets.dart';
 
 class FruitItem extends StatelessWidget {
   const FruitItem({super.key, required this.productEntity});
@@ -31,13 +30,13 @@ class FruitItem extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Image.asset(Assets.imagesWaterMelon),
+                Flexible(child: Image.network(productEntity.imageUrl!)),
                 const SizedBox(
                   height: 24,
                 ),
                 ListTile(
-                  title: const Text(
-                    'بطيخ',
+                  title:  Text(
+                    productEntity.name,
                     style: TextStyles.semiBold13,
                   ),
                   subtitle: FittedBox(
@@ -45,7 +44,7 @@ class FruitItem extends StatelessWidget {
                       TextSpan(
                         children: [
                           TextSpan(
-                            text: '20جنية',
+                            text: '${productEntity.price} ',
                             style: TextStyles.bold13.copyWith(
                               color: AppColors.secondaryColor,
                             ),

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_hub_app/features/authentication/presentation/views/signin_view.dart';
 import 'package:fruits_hub_app/features/authentication/presentation/views/signup_view.dart';
 import 'package:fruits_hub_app/features/best_selling_feature/presentation/views/best_selling_view.dart';
-import 'package:fruits_hub_app/features/home/presentation/views/home_view.dart';
+import 'package:fruits_hub_app/features/home/presentation/views/main_view.dart';
 import 'package:fruits_hub_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:fruits_hub_app/features/splash/presentation/views/splash_view.dart';
 
@@ -19,10 +19,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const SignView());
     case SignupView.routeName:
       return MaterialPageRoute(builder: (context) => const SignupView());
-    case HomeView.routeName:
+    case MainView.routeName:
        
         return MaterialPageRoute( 
-          builder: (context) => const HomeView(
+          builder: (context) => const MainView(
 
           ),
         );

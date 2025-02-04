@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:fruits_hub_app/core/entities/product_entity.dart';
 import 'package:fruits_hub_app/core/errors/failures.dart';
 import 'package:fruits_hub_app/core/models/product_model.dart';
@@ -18,13 +21,15 @@ class ProductsRepoImpl extends ProductsRepo {
         query: {
           'limit': 10,
           'orderBy': 'sellingCount',
+          'descending': true,
         },
       ) as List<Map<String, dynamic>>;
       List<ProductEntity> products =
           data.map((e) => ProductModel.fromJson(e).toEntity()).toList();
-      return Right(products);
-    } catch (e) {
-      return Left(ServerFailure('Failed to get products'));
+      return right(products);
+    } on FirebaseException catch (e) {
+      log('Firebase Error: ${e.code} - ${e.message}');
+      return left(ServerFailure('Failed to get products'));
     }
   }
 
@@ -36,7 +41,8 @@ class ProductsRepoImpl extends ProductsRepo {
       List<ProductEntity> products =
           data.map((e) => ProductModel.fromJson(e).toEntity()).toList();
       return Right(products);
-    } catch (e) {
+    }on FirebaseException catch (e) {
+       log('Firebase Error: ${e.code} - ${e.message}');
       return Left(ServerFailure('Failed to get products'));
     }
   }

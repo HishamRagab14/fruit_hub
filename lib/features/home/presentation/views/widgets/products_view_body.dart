@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub_app/constants.dart';
 import 'package:fruits_hub_app/core/cubits/products_cubit/products_cubit.dart';
 import 'package:fruits_hub_app/core/widgets/search_text_field.dart';
-import 'package:fruits_hub_app/features/home/presentation/views/widgets/best_seller_grid_view_bloc_builder.dart';
+import 'package:fruits_hub_app/features/home/presentation/views/widgets/products_grid_view_bloc_builder.dart';
 import 'package:fruits_hub_app/features/home/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:fruits_hub_app/features/home/presentation/views/widgets/products_view_header.dart';
 
@@ -50,7 +50,7 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
               ],
             ),
           ),
-          const BestSellerGridViewBlocBuilder(),
+          const ProductsGridViewBlocBuilder(),
         ],
       ),
     );

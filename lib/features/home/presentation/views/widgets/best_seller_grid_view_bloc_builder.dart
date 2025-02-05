@@ -13,15 +13,15 @@ class BestSellerGridViewBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return BlocBuilder<ProductsCubit, ProductsState>(
       builder: (context, state) {
         if (state is ProductsSuccess) {
-          return  BestSellerGridView(
+          return BestSellerGridView(
             products: state.products,
           );
         } else if (state is ProductsFailure) {
-          return SliverToBoxAdapter(child: CustomErrorWidget(text: state.errMsg));
+          return SliverToBoxAdapter(
+              child: CustomErrorWidget(text: state.errMsg));
         } else {
           return Skeletonizer.sliver(
             enabled: true,

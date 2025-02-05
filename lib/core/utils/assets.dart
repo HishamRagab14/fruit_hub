@@ -26,6 +26,10 @@ class Assets {
   /// assets/images/apple_icon.svg
   static const String imagesAppleIcon = "assets/images/apple_icon.svg";
 
+  /// Assets for imagesArrowSwapHorizontal
+  /// assets/images/arrow-swap-horizontal.svg
+  static const String imagesArrowSwapHorizontal = "assets/images/arrow-swap-horizontal.svg";
+
   /// Assets for imagesAvatar2
   /// assets/images/avatar2.svg
   static const String imagesAvatar2 = "assets/images/avatar2.svg";

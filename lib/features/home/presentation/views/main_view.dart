@@ -22,21 +22,20 @@ class _MainViewState extends State<MainView> {
       bottomNavigationBar: CustomBottomNavigationBar(
         onItemTapped: (index) {
           currentViewIndex = index;
-          setState(() {
-            
-          });
+          setState(() {});
         },
         currentIndex: currentViewIndex,
       ),
-      body: SafeArea(child: getCurrentView()),
+      body: SafeArea(
+        child: IndexedStack(
+          index: currentViewIndex,
+          children: const [
+            HomeView(),
+            ProductsView(),
+          ],
+        ),
+      ),
       // SafeArea(child: HomeView()),
     );
-  }
-
-  Widget getCurrentView() {
-    return [
-      const HomeView(),
-      const ProductsView(),
-    ][currentViewIndex];
   }
 }

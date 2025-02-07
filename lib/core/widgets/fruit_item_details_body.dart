@@ -7,6 +7,7 @@ import 'package:fruits_hub_app/core/utils/assets.dart';
 import 'package:fruits_hub_app/core/widgets/custom_button.dart';
 import 'package:fruits_hub_app/core/widgets/fruit_item_list_tile.dart';
 import 'package:fruits_hub_app/core/widgets/product_detail_list_tile.dart';
+import 'package:fruits_hub_app/core/widgets/review_view.dart';
 
 class FruitItemDetailsBody extends StatelessWidget {
   const FruitItemDetailsBody({super.key, required this.productEntity});
@@ -33,7 +34,7 @@ class FruitItemDetailsBody extends StatelessWidget {
               child: Container(
                 height: 260, // Background height
                 width: double.infinity,
-                color: Colors.grey.shade200, // Background color
+                color: Colors.grey.shade200, 
               ),
             ),
             Positioned(
@@ -146,9 +147,14 @@ class RatingWidget extends StatelessWidget {
         const SizedBox(
           width: 5,
         ),
-        Text(
-          'المراجعه',
-          style: TextStyles.bold13.copyWith(color: AppColors.primaryColor),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, ReviewView.routeName);
+          },
+          child: Text(
+            'المراجعه',
+            style: TextStyles.bold13.copyWith(color: AppColors.primaryColor),
+          ),
         ),
       ],
     );

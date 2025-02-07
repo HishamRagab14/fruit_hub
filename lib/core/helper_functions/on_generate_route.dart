@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:fruits_hub_app/core/widgets/review_view.dart';
 // import 'package:fruits_hub_app/features/authentication/domain/entites/user_entity.dart';
 import 'package:fruits_hub_app/features/authentication/presentation/views/signin_view.dart';
 import 'package:fruits_hub_app/features/authentication/presentation/views/signup_view.dart';
@@ -29,6 +30,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       
     case BestSellingView.routeName:
       return MaterialPageRoute(builder: (context) => const BestSellingView());
+    case ReviewView.routeName:
+    return MaterialPageRoute(builder: (context)=> const ReviewView());
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }

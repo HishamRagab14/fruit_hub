@@ -41,7 +41,7 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
                 const SizedBox(
                   height: 16,
                 ),
-                const SearchTextField(),
+                const SearchTextField(hintText:  'ابحث عن منتج',),
                 const SizedBox(
                   height: 12,
                 ),

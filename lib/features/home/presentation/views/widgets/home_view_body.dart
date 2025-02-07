@@ -39,7 +39,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 SizedBox(
                   height: 16,
                 ),
-                SearchTextField(),
+                SearchTextField(hintText: 'ابحث عن......',),
                 SizedBox(
                   height: 12,
                 ),

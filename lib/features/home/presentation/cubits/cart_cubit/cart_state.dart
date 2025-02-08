@@ -9,6 +9,5 @@ final class CartLoading extends CartState {}
 final class CartItemAddedSuccess extends CartState {}
 
 final class CartItemRemovedSuccess extends CartState {
-  final List<CartItemEntity> cartItems;
-  CartItemRemovedSuccess({required this.cartItems});
+  
 }

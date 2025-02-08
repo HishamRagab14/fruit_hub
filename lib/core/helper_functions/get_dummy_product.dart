@@ -12,7 +12,7 @@ ProductEntity getDummyProduct() {
     noOfCalories: 100,
     unitAmount: 1,
     isOrganic: true,
-    reviews: [],
+    reviews: const [],
   );
 }
 

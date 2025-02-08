@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub_app/features/home/presentation/cubits/cart_cubit/cart_cubit.dart';
+import 'package:fruits_hub_app/features/home/presentation/views/main_view_body_bloc_listener.dart';
 import 'package:fruits_hub_app/features/home/presentation/views/widgets/custom_button_navigation_bar.dart';
-import 'package:fruits_hub_app/features/home/presentation/views/widgets/main_view_body.dart';
 
 class MainView extends StatefulWidget {
   const MainView({
@@ -30,11 +30,9 @@ class _MainViewState extends State<MainView> {
           currentIndex: currentViewIndex,
         ),
         body: SafeArea(
-          child: MainViewBody(currentViewIndex: currentViewIndex),
+          child: MainViewBodyBlocListener(currentViewIndex: currentViewIndex),
         ),
       ),
     );
   }
 }
-
-

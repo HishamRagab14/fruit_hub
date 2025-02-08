@@ -21,9 +21,9 @@ class CartItem extends StatelessWidget {
             decoration: const BoxDecoration(
               color: Color(0xfff3f5f7),
             ),
-            child: const CustomNetworkImage(
-                imageUrl:
-                    'https://static.vecteezy.com/system/resources/previews/024/183/525/original/avatar-of-a-man-portrait-of-a-young-guy-illustration-of-male-character-in-modern-color-style-vector.jpg'),
+            child: CustomNetworkImage(
+              imageUrl: cartItemEntity.product.imageUrl!,
+            ),
           ),
           const SizedBox(
             width: 17,
@@ -35,8 +35,8 @@ class CartItem extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Text(
-                      'بطيخ ',
+                    Text(
+                      cartItemEntity.product.name,
                       style: TextStyles.bold13,
                     ),
                     const Spacer(),
@@ -48,7 +48,7 @@ class CartItem extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    '3 كم',
+                    '${cartItemEntity.calculateTotalAmount()} كم',
                     style: TextStyles.regular13
                         .copyWith(color: AppColors.secondaryColor),
                   ),
@@ -58,7 +58,7 @@ class CartItem extends StatelessWidget {
                     const CartItemActionButtons(),
                     const Spacer(),
                     Text(
-                      '60 جنيه ',
+                      '${cartItemEntity.calculateTotalPrice()} جنيه',
                       style: TextStyles.bold16
                           .copyWith(color: AppColors.secondaryColor),
                     )

@@ -12,7 +12,7 @@ class InActiveStepItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
          CircleAvatar(
-          backgroundColor: Color(0xffF2F3F3),
+          backgroundColor: const Color(0xffF2F3F3),
           radius: 10,
           child: Text(
             index,

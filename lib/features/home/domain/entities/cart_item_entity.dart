@@ -21,7 +21,9 @@ class CartItemEntity extends Equatable {
   }
 
   decreaseQuantity() {
-    quantity--;
+    if(quantity > 0) {
+      quantity--;
+    }
   }
   
   @override

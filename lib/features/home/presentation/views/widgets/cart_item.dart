@@ -25,6 +25,7 @@ class CartItem extends StatelessWidget {
         return false;
       },
       builder: (context, state) {
+        // log('rebuild cart item');
         return IntrinsicHeight(
           child: Row(
             children: [
@@ -65,7 +66,7 @@ class CartItem extends StatelessWidget {
                     ),
                     Expanded(
                       child: Text(
-                        '${cartItemEntity.calculateTotalAmount()} كم',
+                        '${cartItemEntity.calculateTotalAmount()} كج',
                         style: TextStyles.regular13
                             .copyWith(color: AppColors.secondaryColor),
                       ),

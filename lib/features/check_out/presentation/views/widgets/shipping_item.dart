@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_hub_app/core/utils/app_colors.dart';
 import 'package:fruits_hub_app/core/utils/app_text_styles.dart';
 
+import 'inactive_shipping_item_dot.dart';
+
 class ShippingItem extends StatelessWidget {
-  const ShippingItem({super.key, required this.title, required this.subTitle, required this.price});
-  final String title, subTitle,price;
+  const ShippingItem(
+      {super.key,
+      required this.title,
+      required this.subTitle,
+      required this.price,
+      required this.isSelected});
+  final String title, subTitle, price;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
       padding: const EdgeInsets.only(
         top: 16,
         left: 13,
@@ -16,25 +26,19 @@ class ShippingItem extends StatelessWidget {
       ),
       clipBehavior: Clip.antiAlias,
       decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        shape: RoundedRectangleBorder(
+          side: isSelected
+              ? const BorderSide(color: AppColors.primaryColor, width: 1.5)
+              : const BorderSide(color: Colors.transparent),
+          borderRadius: BorderRadius.circular(4),
+        ),
         color: const Color(0x33D9D9D9),
       ),
       child: IntrinsicHeight(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 18,
-              width: 18,
-              decoration: const ShapeDecoration(
-                shape: OvalBorder(
-                  side: BorderSide(
-                    width: 1,
-                    color: Color(0xff949D9E),
-                  ),
-                ),
-              ),
-            ),
+            isSelected ? const ActiveShippingItemDot(): const InActiveShippingItemDot(),
             const SizedBox(
               width: 10,
             ),
@@ -72,3 +76,5 @@ class ShippingItem extends StatelessWidget {
     );
   }
 }
+
+

@@ -14,14 +14,16 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
   late PageController pageController;
   @override
   void initState() {
-    pageController= PageController();
+    pageController = PageController();
     super.initState();
   }
+
   @override
   void dispose() {
     pageController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,7 +37,15 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
           Expanded(
             child: CheckoutStepsPageView(pageController: pageController),
           ),
-          CustomButton(text: 'التالي', onPressed: () {}),
+          CustomButton(
+            text: 'التالي',
+            onPressed: () {
+              pageController.nextPage(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.linear,
+              );
+            },
+          ),
           const SizedBox(
             height: 30,
           ),
@@ -44,5 +54,3 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
     );
   }
 }
-
-

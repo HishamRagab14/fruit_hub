@@ -9,24 +9,37 @@ class ShippingSection extends StatefulWidget {
 }
 
 class _ShippingSectionState extends State<ShippingSection> {
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return  Column(
       children: [
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
         ShippingItem(
-          isSelected: true,
+          onTap: () {
+            selectedIndex = 0;
+            setState(() {
+              
+            });
+          },
+          isSelected: selectedIndex == 0,
           title: 'الدفع عند الاستلام',
           price: '40',
           subTitle: 'التسليم من المكان',
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
         ShippingItem(
-          isSelected: false,
+          onTap: () {
+            selectedIndex = 1;
+            setState(() {
+              
+            });
+          },
+          isSelected: selectedIndex == 1,
           title: 'دفع الكتروني',
           price: '0',
           subTitle: 'يرجي تحديد طريقه الدفع',

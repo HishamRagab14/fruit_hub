@@ -20,8 +20,12 @@ class CustomCartButton extends StatelessWidget {
               'الدفع ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} جنيه',
           onPressed: () {
             if (context.read<CartCubit>().cartEntity.cartItems.isNotEmpty) {
-              Navigator.pushNamed(context, CheckOutView.routeName);
-            } else{
+              Navigator.pushNamed(
+                context,
+                CheckOutView.routeName,
+                arguments: context.read<CartCubit>().cartEntity.cartItems,
+              );
+            } else {
               showErrorBar(context, 'السله فارغه');
             }
           },

@@ -19,7 +19,7 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
           Navigator.pushReplacementNamed(context, MainView.routeName,arguments: state.userEntity);
         }
         if (state is SignupFailure) {
-          buildErrorBar(context, state.errMsg);
+          showErrorBar(context, state.errMsg);
         }
       },
       builder: (context, state) {

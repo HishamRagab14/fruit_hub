@@ -47,9 +47,10 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
             child: CheckoutStepsPageView(pageController: pageController),
           ),
           CustomButton(
-            text: 'التالي',
+            text: getNextButtonText(currentPageIndex),
             onPressed: () {
-              pageController.nextPage(
+              pageController.animateToPage(
+                currentPageIndex + 1,
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.linear,
               );
@@ -61,5 +62,19 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
         ],
       ),
     );
+  }
+  
+  String getNextButtonText(int currentPageIndex) {
+    switch (currentPageIndex) {
+      case 0:
+        return 'التالي';
+      case 1:
+        return 'التالي';
+      
+      case 2:
+        return 'ادفع عن طريق PayBal';
+      default:
+        return 'التالي';
+    }
   }
 }

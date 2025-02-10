@@ -41,7 +41,16 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
             height: 20,
           ),
           CheckOutSteps(
+            pageController: pageController,
             currentIndex: currentPageIndex,
+            // onTap: (index) {
+            //   pageController.animateToPage(
+            //     index,
+            //     duration: const Duration(milliseconds: 300),
+            //     curve: Curves.easeIn,
+            //   );
+            //          حـــــــــــــل تانـــــــــــــــــــــــــي
+            // },
           ),
           Expanded(
             child: CheckoutStepsPageView(pageController: pageController),

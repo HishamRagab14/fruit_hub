@@ -1,5 +1,8 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_hub_app/core/helper_functions/show_error_bar.dart';
 import 'package:fruits_hub_app/core/widgets/custom_button.dart';
+import 'package:fruits_hub_app/features/check_out/domain/entities/order_entity.dart';
 import 'package:fruits_hub_app/features/check_out/presentation/views/widgets/check_out_steps.dart';
 import 'package:fruits_hub_app/features/check_out/presentation/views/widgets/check_out_steps_page_view.dart';
 
@@ -58,11 +61,15 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
           CustomButton(
             text: getNextButtonText(currentPageIndex),
             onPressed: () {
-              pageController.animateToPage(
-                currentPageIndex + 1,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.linear,
-              );
+              if (context.read<OrderEntity>().payCash != null) {
+                pageController.animateToPage(
+                  currentPageIndex + 1,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.linear,
+                );
+              } else {
+                showErrorBar(context, 'يرجى تحديد طريقة الدفع');
+              }
             },
           ),
           const SizedBox(
@@ -72,14 +79,14 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
       ),
     );
   }
-  
+
   String getNextButtonText(int currentPageIndex) {
     switch (currentPageIndex) {
       case 0:
         return 'التالي';
       case 1:
         return 'التالي';
-      
+
       case 2:
         return 'ادفع عن طريق PayBal';
       default:

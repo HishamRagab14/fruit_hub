@@ -1,9 +1,15 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_hub_app/core/helper_functions/show_error_bar.dart';
+import 'package:fruits_hub_app/features/check_out/domain/entities/order_entity.dart';
 import 'package:fruits_hub_app/features/check_out/presentation/views/widgets/step_item.dart';
 
 class CheckOutSteps extends StatelessWidget {
-  const CheckOutSteps(
-      {super.key, required this.currentIndex, required this.pageController,});
+  const CheckOutSteps({
+    super.key,
+    required this.currentIndex,
+    required this.pageController,
+  });
   final int currentIndex;
   final PageController pageController;
   // final Function(int index)? onTap حل تانى ;
@@ -16,11 +22,15 @@ class CheckOutSteps extends StatelessWidget {
           return Expanded(
             child: GestureDetector(
               onTap: () {
-                pageController.animateToPage(
-                  index,
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeIn,
-                );
+                if (context.read<OrderEntity>().payCash != null) {
+                  pageController.animateToPage(
+                    index,
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeIn,
+                  );
+                } else {
+                  showErrorBar(context, 'يرجي تحديد طريقة الدفع');
+                }
               },
               child: StepItem(
                 isActive: index <= currentIndex,

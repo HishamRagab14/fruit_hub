@@ -15,6 +15,11 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
   @override
   void initState() {
     pageController = PageController();
+    pageController.addListener(() {
+      setState(() {
+        currentPageIndex = pageController.page!.toInt();
+      });
+    });
     super.initState();
   }
 
@@ -23,6 +28,8 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
     pageController.dispose();
     super.dispose();
   }
+
+  int currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +40,9 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
           const SizedBox(
             height: 20,
           ),
-          const CheckOutSteps(),
+          CheckOutSteps(
+            currentIndex: currentPageIndex,
+          ),
           Expanded(
             child: CheckoutStepsPageView(pageController: pageController),
           ),

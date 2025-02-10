@@ -2,7 +2,8 @@ import 'package:flutter/widgets.dart';
 import 'package:fruits_hub_app/features/check_out/presentation/views/widgets/step_item.dart';
 
 class CheckOutSteps extends StatelessWidget {
-  const CheckOutSteps({super.key});
+  const CheckOutSteps({super.key, required this.currentIndex});
+  final int currentIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class CheckOutSteps extends StatelessWidget {
         (index) {
           return Expanded(
             child: StepItem(
-              isActive: true,
+              isActive: index <= currentIndex,
               text: getSteps()[index],
               index: (index + 1).toString(),
             ),

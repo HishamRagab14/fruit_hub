@@ -38,6 +38,10 @@ class Assets {
   /// assets/images/calendar.svg
   static const String imagesCalendar = "assets/images/calendar.svg";
 
+  /// Assets for imagesEdit
+  /// assets/images/edit.svg
+  static const String imagesEdit = "assets/images/edit.svg";
+
   /// Assets for imagesElement3
   /// assets/images/element-3.svg
   static const String imagesElement3 = "assets/images/element-3.svg";
@@ -61,6 +65,10 @@ class Assets {
   /// Assets for imagesHome
   /// assets/images/home.svg
   static const String imagesHome = "assets/images/home.svg";
+
+  /// Assets for imagesLocation
+  /// assets/images/location.svg
+  static const String imagesLocation = "assets/images/location.svg";
 
   /// Assets for imagesLogo
   /// assets/images/logo.svg

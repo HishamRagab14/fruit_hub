@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub_app/core/helper_functions/show_error_bar.dart';
 import 'package:fruits_hub_app/core/widgets/custom_button.dart';
 import 'package:fruits_hub_app/features/check_out/domain/entities/order_entity.dart';
 import 'package:fruits_hub_app/features/check_out/presentation/views/widgets/check_out_steps.dart';
 import 'package:fruits_hub_app/features/check_out/presentation/views/widgets/check_out_steps_page_view.dart';
+import 'package:provider/provider.dart';
 
 class CheckOutViewBody extends StatefulWidget {
   const CheckOutViewBody({super.key});

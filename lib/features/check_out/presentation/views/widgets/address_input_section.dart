@@ -27,7 +27,7 @@ class AddressInputSection extends StatelessWidget {
                 hintText: 'الاسم كامل',
                 textInputType: TextInputType.text,
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingEntity!.name = value!;
+                  context.read<OrderEntity>().shippingEntity.name = value!;
                 },
               ),
               const SizedBox(
@@ -37,7 +37,7 @@ class AddressInputSection extends StatelessWidget {
                 hintText: 'البريد الالكتروني',
                 textInputType: TextInputType.emailAddress,
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingEntity!.email = value!;
+                  context.read<OrderEntity>().shippingEntity.email = value!;
                 },
               ),
               const SizedBox(
@@ -47,7 +47,7 @@ class AddressInputSection extends StatelessWidget {
                 hintText: 'رقم الهاتف',
                 textInputType: TextInputType.phone,
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingEntity!.phoneNumber =
+                  context.read<OrderEntity>().shippingEntity.phoneNumber =
                       value!;
                 },
               ),
@@ -58,7 +58,7 @@ class AddressInputSection extends StatelessWidget {
                 hintText: 'العنوان',
                 textInputType: TextInputType.streetAddress,
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingEntity!.address = value!;
+                  context.read<OrderEntity>().shippingEntity.address = value!;
                 },
               ),
               const SizedBox(
@@ -68,7 +68,7 @@ class AddressInputSection extends StatelessWidget {
                 hintText: 'المدينة',
                 textInputType: TextInputType.streetAddress,
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingEntity!.city = value!;
+                  context.read<OrderEntity>().shippingEntity.city = value!;
                 },
               ),
               const SizedBox(
@@ -78,7 +78,7 @@ class AddressInputSection extends StatelessWidget {
                 hintText: 'رقم الطابق',
                 textInputType: TextInputType.streetAddress,
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingEntity!.floor = value!;
+                  context.read<OrderEntity>().shippingEntity.floor = value!;
                 },
               ),
             ],

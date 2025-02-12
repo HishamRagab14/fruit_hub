@@ -57,17 +57,19 @@ class OrderSummaryWidget extends StatelessWidget {
           const SizedBox(
             height: 9,
           ),
-           Row(children: [
-            const Text(
-              'الكلي',
-              style: TextStyles.bold16,
-            ),
-            const Spacer(),
-            Text(
-              '${context.read<OrderEntity>().cartEntity.calculateTotalPrice() + 30} جنيه',
-              style: TextStyles.bold16,
-            ),
-          ])
+          Row(
+            children: [
+              const Text(
+                'الكلي',
+                style: TextStyles.bold16,
+              ),
+              const Spacer(),
+              Text(
+                '${context.read<OrderEntity>().cartEntity.calculateTotalPrice() + 30} جنيه',
+                style: TextStyles.bold16,
+              ),
+            ],
+          )
         ],
       ),
     );

@@ -39,46 +39,49 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 20,
-          ),
-          CheckOutSteps(
-            pageController: pageController,
-            currentIndex: currentPageIndex,
-            // onTap: (index) {
-            //   pageController.animateToPage(
-            //     index,
-            //     duration: const Duration(milliseconds: 300),
-            //     curve: Curves.easeIn,
-            //   );
-            //          حـــــــــــــل تانـــــــــــــــــــــــــي
-            // },
-          ),
-          Expanded(
-            child: CheckoutStepsPageView(
-              valueListenable: valueNotifier,
-              formKey: formKey,
-              pageController: pageController,
+    return ListenableProvider.value(
+      value: pageController,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 20,
             ),
-          ),
-          CustomButton(
-            text: getNextButtonText(currentPageIndex),
-            onPressed: () {
-              if (currentPageIndex == 0) {
-                _handleShippingSectionValidation(context);
-              } else if (currentPageIndex == 1) {
-                _handleAddressSectionValidation();
-              }
-            },
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-        ],
+            CheckOutSteps(
+              pageController: pageController,
+              currentIndex: currentPageIndex,
+              // onTap: (index) {
+              //   pageController.animateToPage(
+              //     index,
+              //     duration: const Duration(milliseconds: 300),
+              //     curve: Curves.easeIn,
+              //   );
+              //          حـــــــــــــل تانـــــــــــــــــــــــــي
+              // },
+            ),
+            Expanded(
+              child: CheckoutStepsPageView(
+                valueListenable: valueNotifier,
+                formKey: formKey,
+                pageController: pageController,
+              ),
+            ),
+            CustomButton(
+              text: getNextButtonText(currentPageIndex),
+              onPressed: () {
+                if (currentPageIndex == 0) {
+                  _handleShippingSectionValidation(context);
+                } else if (currentPageIndex == 1) {
+                  _handleAddressSectionValidation();
+                }
+              },
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -7,8 +7,9 @@ import 'package:fruits_hub_app/features/check_out/presentation/views/widgets/pay
 import 'package:provider/provider.dart';
 
 class ShippingAddressWidget extends StatelessWidget {
-  const ShippingAddressWidget({super.key});
-
+  const ShippingAddressWidget({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return PaymentItem(
@@ -30,8 +31,9 @@ class ShippingAddressWidget extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
+                  var pageController =context.read<PageController>();
                   // context.read<PageController>().animateToPage(PageController().page!.toInt() - 1, duration: const Duration(milliseconds: 300), curve: Curves.bounceIn);
-                  
+                  pageController.animateToPage(pageController.page!.toInt() - 1, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
                 },
                 child: SvgPicture.asset(Assets.imagesEdit),
               ),

@@ -26,27 +26,29 @@ class ShippingAddressWidget extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        SizedBox(
-          child: Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  var pageController =context.read<PageController>();
-                  // context.read<PageController>().animateToPage(PageController().page!.toInt() - 1, duration: const Duration(milliseconds: 300), curve: Curves.bounceIn);
-                  pageController.animateToPage(pageController.page!.toInt() - 1, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
-                },
-                child: SvgPicture.asset(Assets.imagesEdit),
-              ),
-              const SizedBox(
-                width: 4,
-              ),
-              Text(
-                'تعديل العنوان',
-                style: TextStyles.semiBold13.copyWith(
-                  color: const Color(0XFF949D9E),
+        GestureDetector(
+          onTap: () {
+            var pageController = context.read<PageController>();
+            // context.read<PageController>().animateToPage(PageController().page!.toInt() - 1, duration: const Duration(milliseconds: 300), curve: Curves.bounceIn);
+            pageController.animateToPage(pageController.page!.toInt() - 1,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeIn);
+          },
+          child: SizedBox(
+            child: Row(
+              children: [
+                SvgPicture.asset(Assets.imagesEdit),
+                const SizedBox(
+                  width: 4,
                 ),
-              ),
-            ],
+                Text(
+                  'تعديل العنوان',
+                  style: TextStyles.semiBold13.copyWith(
+                    color: const Color(0XFF949D9E),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ]),

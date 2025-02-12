@@ -3,6 +3,7 @@ import 'package:fruits_hub_app/features/home/domain/entities/cart_entity.dart';
 
 class OrderEntity {
   final CartEntity cartEntity;
+  final String uId;
   bool? payCash;
   ShippingEntity shippingEntity;
 
@@ -10,5 +11,6 @@ class OrderEntity {
     required this.cartEntity,
     this.payCash,
     required this.shippingEntity,
-  });
+    required this.uId,
+  }); 
 }

@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:fruits_hub_app/core/helper_functions/show_error_bar.dart';
 import 'package:fruits_hub_app/core/widgets/custom_button.dart';
 import 'package:fruits_hub_app/features/check_out/domain/entities/order_entity.dart';
+import 'package:fruits_hub_app/features/check_out/presentation/manager/add_order/add_order_cubit.dart';
 import 'package:fruits_hub_app/features/check_out/presentation/views/widgets/check_out_steps.dart';
 import 'package:fruits_hub_app/features/check_out/presentation/views/widgets/check_out_steps_page_view.dart';
 import 'package:provider/provider.dart';
@@ -74,6 +75,9 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
                   _handleShippingSectionValidation(context);
                 } else if (currentPageIndex == 1) {
                   _handleAddressSectionValidation();
+                } else {
+                  var orderEntity = context.read<OrderEntity>();
+                  context.read<AddOrderCubit>().addOrder(order: orderEntity);
                 }
               },
             ),
@@ -94,7 +98,7 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
         curve: Curves.linear,
       );
     } else {
-      showErrorBar(context, 'يرجى تحديد طريقة الدفع');
+      showBar(context, 'يرجى تحديد طريقة الدفع');
     }
   }
 

@@ -25,7 +25,7 @@ class ShippingModel {
       floor: entity.floor,
     );
   }
-  toJson() {
+   toJson() {
     return {
       'name': name,
       'phoneNumber': phoneNumber,

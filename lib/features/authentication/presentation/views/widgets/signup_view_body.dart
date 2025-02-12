@@ -76,7 +76,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                             .createUserWithEmailAndPassword(
                                 email: email, password: password, name: name);
                       } else{
-                        showErrorBar(context, 'يجب الموافقة على الشروط والاحكام');
+                        showBar(context, 'يجب الموافقة على الشروط والاحكام');
                       }
                       // context.read<SignupCubit>().createUserWithEmailAndPassword(email: '',name:'' ,password: '');
                     } else {

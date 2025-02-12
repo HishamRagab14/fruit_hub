@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void showErrorBar(BuildContext context, String errMsg) {
+void showBar(BuildContext context, String errMsg) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       behavior: SnackBarBehavior.floating,

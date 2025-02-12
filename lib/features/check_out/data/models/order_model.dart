@@ -19,7 +19,7 @@ class OrderModel {
   factory OrderModel.fromEntity(OrderEntity orderEntity) {
     return OrderModel(
       uId: orderEntity.uId,
-      shippingModel: ShippingModel.fromEntity(orderEntity.shippingEntity!),
+      shippingModel: ShippingModel.fromEntity(orderEntity.shippingEntity),
       orderProductModel: orderEntity.cartEntity.cartItems
           .map((cartItem) => OrderProductModel.fromEntity(cartItem))
           .toList(),
@@ -27,11 +27,11 @@ class OrderModel {
       totalPrice: orderEntity.cartEntity.calculateTotalPrice().toString(),
     );
   }
-  toJson() {
+   toJson() {
     return {
       'uId': uId,
-      'shippingModel': shippingModel,
-      'orderProductModel': orderProductModel,
+      'shippingModel': shippingModel.toJson(),
+      'orderProductModel': orderProductModel.map((e) => e.toJson()).toList(),
       'paymentMethod': paymentMethod,
       'totalPrice': totalPrice,
     };

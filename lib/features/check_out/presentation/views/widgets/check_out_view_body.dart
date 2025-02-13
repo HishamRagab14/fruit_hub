@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:fruits_hub_app/core/helper_functions/show_error_bar.dart';
 import 'package:fruits_hub_app/core/widgets/custom_button.dart';
 import 'package:fruits_hub_app/features/check_out/domain/entities/order_entity.dart';
@@ -16,7 +18,8 @@ class CheckOutViewBody extends StatefulWidget {
 
 class _CheckOutViewBodyState extends State<CheckOutViewBody> {
   late PageController pageController;
-  ValueNotifier<AutovalidateMode> valueNotifier = ValueNotifier(AutovalidateMode.disabled);
+  ValueNotifier<AutovalidateMode> valueNotifier =
+      ValueNotifier(AutovalidateMode.disabled);
   @override
   void initState() {
     pageController = PageController();
@@ -78,6 +81,7 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
                 } else {
                   var orderEntity = context.read<OrderEntity>();
                   context.read<AddOrderCubit>().addOrder(order: orderEntity);
+                  _processPayment(context);
                 }
               },
             ),
@@ -115,18 +119,74 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
         return 'التالي';
     }
   }
-  
+
   void _handleAddressSectionValidation() {
-    if(formKey.currentState!.validate()){
+    if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
       pageController.animateToPage(
         currentPageIndex + 1,
         duration: const Duration(milliseconds: 300),
         curve: Curves.linear,
       );
-
     } else {
       valueNotifier.value = AutovalidateMode.always;
     }
+  }
+
+  void _processPayment(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) => PaypalCheckoutView(
+          sandboxMode: true,
+          clientId: "",
+          secretKey: "",
+          transactions: const [
+            {
+              "amount": {
+                "total": '70',
+                "currency": "USD",
+                "details": {
+                  "subtotal": '70',
+                  "shipping": '0',
+                  "shipping_discount": 0
+                }
+              },
+              "description": "The payment transaction description.",
+              // "payment_options": {
+              //   "allowed_payment_method":
+              //       "INSTANT_FUNDING_SOURCE"
+              // },
+              "item_list": {
+                "items": [
+                  {
+                    "name": "Apple",
+                    "quantity": 4,
+                    "price": '5',
+                    "currency": "USD"
+                  },
+                  {
+                    "name": "Pineapple",
+                    "quantity": 5,
+                    "price": '10',
+                    "currency": "USD"
+                  }
+                ],
+              }
+            }
+          ],
+          note: "Contact us for any questions on your order.",
+          onSuccess: (Map params) async {
+            print("onSuccess: $params");
+          },
+          onError: (error) {
+            print("onError: $error");
+            Navigator.pop(context);
+          },
+          onCancel: () {
+            print('cancelled:');
+          },
+        ),
+      ),
+    );
   }
 }

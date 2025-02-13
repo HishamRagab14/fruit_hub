@@ -7,6 +7,7 @@ class OrderProductModel {
   final double price;
   final int quantity;
 
+
   OrderProductModel(
       {required this.code,
       required this.name,

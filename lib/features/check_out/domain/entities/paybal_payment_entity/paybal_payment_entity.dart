@@ -8,21 +8,11 @@ class PaybalPaymentEntity {
 
   PaybalPaymentEntity({this.amount, this.description, this.itemList});
 
-  factory PaybalPaymentEntity.fromJson(Map<String, dynamic> json) {
-    return PaybalPaymentEntity(
-      amount: json['amount'] == null
-          ? null
-          : Amount.fromJson(json['amount'] as Map<String, dynamic>),
-      description: json['description'] as String?,
-      itemList: json['item_list'] == null
-          ? null
-          : ItemList.fromJson(json['item_list'] as Map<String, dynamic>),
-    );
-  }
-
-  Map<String, dynamic> toJson() => {
-        'amount': amount?.toJson(),
-        'description': description,
-        'item_list': itemList?.toJson(),
-      };
+  
+  factory PaybalPaymentEntity.fromEntity(PaybalPaymentEntity entity) =>
+      PaybalPaymentEntity(
+        amount: entity.amount,
+        description: entity.description,
+        itemList: entity.itemList,
+      );
 }

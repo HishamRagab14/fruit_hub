@@ -1,17 +1,22 @@
+import 'package:fruits_hub_app/features/home/domain/entities/cart_item_entity.dart';
+
 import 'item.dart';
 
 class ItemList {
-  List<Item>? items;
+  List<ItemEntity>? items;
 
   ItemList({this.items});
-
-  factory ItemList.fromJson(Map<String, dynamic> json) => ItemList(
-        items: (json['items'] as List<dynamic>?)
-            ?.map((e) => Item.fromJson(e as Map<String, dynamic>))
-            .toList(),
-      );
 
   Map<String, dynamic> toJson() => {
         'items': items?.map((e) => e.toJson()).toList(),
       };
+  factory ItemList.fromEntity(List<CartItemEntity> cartItems) {
+    return ItemList(
+      items: cartItems
+          .map(
+            (e) => ItemEntity.fromEntity(e),
+          )
+          .toList(),
+    );
+  }
 }

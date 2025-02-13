@@ -1,5 +1,6 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:fruits_hub_app/core/helper_functions/show_error_bar.dart';
 import 'package:fruits_hub_app/core/widgets/custom_button.dart';
@@ -176,14 +177,14 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
           ],
           note: "Contact us for any questions on your order.",
           onSuccess: (Map params) async {
-            print("onSuccess: $params");
+            log("onSuccess: $params");
           },
           onError: (error) {
-            print("onError: $error");
+            log("onError: $error");
             Navigator.pop(context);
           },
           onCancel: () {
-            print('cancelled:');
+            log('cancelled:');
           },
         ),
       ),

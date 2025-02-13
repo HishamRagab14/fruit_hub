@@ -13,6 +13,4 @@ class BestSellingView extends StatelessWidget {
       body: const BestSellingViewBody(),
     );
   }
-
-  
 }

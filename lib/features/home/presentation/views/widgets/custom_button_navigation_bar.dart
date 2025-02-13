@@ -3,7 +3,8 @@ import 'package:fruits_hub_app/features/home/domain/entities/bottom_navigation_b
 import 'package:fruits_hub_app/features/home/presentation/views/widgets/navigation_bar_item.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({super.key, required this.currentIndex, required this.onItemTapped});
+  const CustomBottomNavigationBar(
+      {super.key, required this.currentIndex, required this.onItemTapped});
   final int currentIndex;
   final ValueChanged<int> onItemTapped;
 
@@ -60,7 +61,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
                   );
                 },
                 child: NavigationBarItem(
-                  key: ValueKey(selectedIndex==index),
+                  key: ValueKey(selectedIndex == index),
                   isActive: selectedIndex == index,
                   bottomNavigationBarEntity: entity,
                 ),

@@ -27,7 +27,7 @@ class OrderModel {
       totalPrice: orderEntity.cartEntity.calculateTotalPrice().toString(),
     );
   }
-   toJson() {
+  toJson() {
     return {
       'uId': uId,
       'shippingModel': shippingModel.toJson(),

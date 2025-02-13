@@ -21,11 +21,11 @@ class CartItemEntity extends Equatable {
   }
 
   decreaseQuantity() {
-    if(quantity > 0) {
+    if (quantity > 0) {
       quantity--;
     }
   }
-  
+
   @override
   List<Object?> get props => [product];
 }

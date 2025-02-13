@@ -58,7 +58,7 @@ class SigninCubit extends Cubit<SigninState> {
         emit(SigninFailure(errMsg: failure.message));
       },
       (userEntity) {
-        emit(SigninSuccess(userEntity: userEntity)); 
+        emit(SigninSuccess(userEntity: userEntity));
       },
     );
   }

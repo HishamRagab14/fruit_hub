@@ -7,7 +7,6 @@ class OrderProductModel {
   final double price;
   final int quantity;
 
-
   OrderProductModel(
       {required this.code,
       required this.name,
@@ -23,7 +22,7 @@ class OrderProductModel {
       quantity: cartItemEntity.quantity,
     );
   }
-  toJson(){
+  toJson() {
     return {
       'code': code,
       'name': name,

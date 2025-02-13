@@ -10,7 +10,8 @@ class ShippingItem extends StatelessWidget {
       required this.title,
       required this.subTitle,
       required this.price,
-      required this.isSelected, required this.onTap});
+      required this.isSelected,
+      required this.onTap});
   final String title, subTitle, price;
   final bool isSelected;
   final VoidCallback onTap;
@@ -41,7 +42,9 @@ class ShippingItem extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              isSelected ? const ActiveShippingItemDot(): const InActiveShippingItemDot(),
+              isSelected
+                  ? const ActiveShippingItemDot()
+                  : const InActiveShippingItemDot(),
               const SizedBox(
                 width: 10,
               ),
@@ -80,5 +83,3 @@ class ShippingItem extends StatelessWidget {
     );
   }
 }
-
-

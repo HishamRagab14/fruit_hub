@@ -1,9 +1,7 @@
-
 // ignore_for_file: must_be_immutable
 
 import 'package:equatable/equatable.dart';
 import 'package:fruits_hub_app/core/entities/review_entity.dart';
-
 
 class ProductEntity extends Equatable {
   final String name;
@@ -33,7 +31,7 @@ class ProductEntity extends Equatable {
     this.isOrganic = false,
     required this.reviews,
   });
-  
+
   @override
-  List<Object?> get props => [code,name];
+  List<Object?> get props => [code, name];
 }

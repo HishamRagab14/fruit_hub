@@ -6,10 +6,11 @@ import 'package:fruits_hub_app/core/utils/assets.dart';
 class SearchTextField extends StatelessWidget {
   const SearchTextField({
     super.key,
-    required this.hintText,  this.isVisible = true, 
+    required this.hintText,
+    this.isVisible = true,
   });
   final String? hintText;
-  final bool isVisible  ;
+  final bool isVisible;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class SearchTextField extends StatelessWidget {
             fit: BoxFit.scaleDown,
           ),
           suffixIcon: Visibility(
-            visible: isVisible ,
+            visible: isVisible,
             child: SvgPicture.asset(
               Assets.imagesSetting4,
               fit: BoxFit.scaleDown,

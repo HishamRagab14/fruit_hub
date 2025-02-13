@@ -14,8 +14,8 @@ class NotificationWidget extends StatelessWidget {
       decoration: const ShapeDecoration(
         color: Color(0xffEEF8ED),
         shape: OvalBorder(),
-        ),
-        child: SvgPicture.asset(Assets.imagesNotification),
+      ),
+      child: SvgPicture.asset(Assets.imagesNotification),
     );
   }
 }

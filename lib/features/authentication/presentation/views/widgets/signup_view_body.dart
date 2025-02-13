@@ -75,7 +75,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                         BlocProvider.of<SignupCubit>(context)
                             .createUserWithEmailAndPassword(
                                 email: email, password: password, name: name);
-                      } else{
+                      } else {
                         showBar(context, 'يجب الموافقة على الشروط والاحكام');
                       }
                       // context.read<SignupCubit>().createUserWithEmailAndPassword(email: '',name:'' ,password: '');

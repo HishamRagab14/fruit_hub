@@ -41,8 +41,8 @@ class ProductsRepoImpl extends ProductsRepo {
       List<ProductEntity> products =
           data.map((e) => ProductModel.fromJson(e).toEntity()).toList();
       return Right(products);
-    }on FirebaseException catch (e) {
-       log('Firebase Error: ${e.code} - ${e.message}');
+    } on FirebaseException catch (e) {
+      log('Firebase Error: ${e.code} - ${e.message}');
       return Left(ServerFailure('Failed to get products'));
     }
   }

@@ -12,5 +12,5 @@ class OrderEntity {
     this.payCash,
     required this.shippingEntity,
     required this.uId,
-  }); 
+  });
 }

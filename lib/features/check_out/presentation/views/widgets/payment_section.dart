@@ -14,7 +14,6 @@ class PaymentSection extends StatelessWidget {
           height: 16,
         ),
         ShippingAddressWidget(),
-        
       ],
     );
   }

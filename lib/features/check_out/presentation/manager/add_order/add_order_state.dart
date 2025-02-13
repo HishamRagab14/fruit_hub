@@ -8,6 +8,7 @@ sealed class AddOrderState extends Equatable {
 }
 
 final class AddOrderInitial extends AddOrderState {}
+
 final class AddOrderLoading extends AddOrderState {}
 
 final class AddOrderFailure extends AddOrderState {

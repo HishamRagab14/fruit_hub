@@ -8,7 +8,8 @@ class CheckoutStepsPageView extends StatelessWidget {
   const CheckoutStepsPageView({
     super.key,
     required this.pageController,
-    required this.formKey, required this.valueListenable,
+    required this.formKey,
+    required this.valueListenable,
   });
 
   final PageController pageController;

@@ -14,7 +14,6 @@ class SocialSigninButton extends StatelessWidget {
       width: double.infinity,
       child: TextButton(
         onPressed: onPressed,
-
         style: TextButton.styleFrom(
           alignment: Alignment.topRight,
           shape: RoundedRectangleBorder(
@@ -22,19 +21,16 @@ class SocialSigninButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
         ),
-
         child: ListTile(
           visualDensity: const VisualDensity(
-            vertical: VisualDensity.minimumDensity,
-            horizontal: VisualDensity.minimumDensity
-          ),
+              vertical: VisualDensity.minimumDensity,
+              horizontal: VisualDensity.minimumDensity),
           leading: SvgPicture.asset(image),
           title: Text(
             title,
             textAlign: TextAlign.center,
             style: TextStyles.semiBold16.copyWith(
               color: const Color(0xff0C0D0D),
-              
             ),
           ),
         ),

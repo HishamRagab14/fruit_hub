@@ -1,8 +1,7 @@
-
-num getAverageRating(List<dynamic> reviews){
+num getAverageRating(List<dynamic> reviews) {
   var sum = 0.0;
-  for(var review in reviews){
+  for (var review in reviews) {
     sum += review.rating;
   }
-  return sum/reviews.length;
+  return sum / reviews.length;
 }

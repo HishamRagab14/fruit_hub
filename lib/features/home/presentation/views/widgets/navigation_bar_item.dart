@@ -14,7 +14,7 @@ class NavigationBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return isActive
         ? ActiveBottomNavigationBarItem(
-          name: bottomNavigationBarEntity.name,
+            name: bottomNavigationBarEntity.name,
             image: bottomNavigationBarEntity.activeImage,
           )
         : InActiveButtonNavigationBarItem(

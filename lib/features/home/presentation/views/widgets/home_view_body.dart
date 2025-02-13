@@ -18,11 +18,12 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
-@override
+  @override
   void initState() {
     context.read<ProductsCubit>().getBestSellingProducts();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return const Padding(
@@ -39,7 +40,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 SizedBox(
                   height: 16,
                 ),
-                SearchTextField(hintText: 'ابحث عن......',),
+                SearchTextField(
+                  hintText: 'ابحث عن......',
+                ),
                 SizedBox(
                   height: 12,
                 ),
@@ -62,5 +65,3 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     );
   }
 }
-
-

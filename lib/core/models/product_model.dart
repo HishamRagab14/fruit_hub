@@ -87,5 +87,5 @@ class ProductModel {
       'reviews': reviews.map((e) => e.toJson()).toList(),
       'sellingCount': sellingCount
     };
-  }  
+  }
 }

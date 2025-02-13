@@ -11,7 +11,7 @@ class InActiveStepItem extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-         CircleAvatar(
+        CircleAvatar(
           backgroundColor: const Color(0xffF2F3F3),
           radius: 10,
           child: Text(
@@ -28,6 +28,5 @@ class InActiveStepItem extends StatelessWidget {
         ),
       ],
     );
-    
   }
 }

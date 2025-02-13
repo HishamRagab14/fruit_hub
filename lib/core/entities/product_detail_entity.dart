@@ -3,6 +3,6 @@ class ProductDetailEntity {
   final String image;
   final String subTitle;
 
-  const ProductDetailEntity({required this.title, required this.image, required this.subTitle});
-
+  const ProductDetailEntity(
+      {required this.title, required this.image, required this.subTitle});
 }

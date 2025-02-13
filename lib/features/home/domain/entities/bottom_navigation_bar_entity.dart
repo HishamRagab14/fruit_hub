@@ -8,27 +8,27 @@ class BottomNavigationBarEntity {
       {required this.name,
       required this.activeImage,
       required this.inActiveImage});
-
 }
+
 List<BottomNavigationBarEntity> get bottomNavigationBarItems => [
-        BottomNavigationBarEntity(
-          name: 'الرئيسية',
-          activeImage: Assets.imagesActiveHome,
-          inActiveImage: Assets.imagesHome,
-        ),
-        BottomNavigationBarEntity(
-          name: 'المنتجات',
-          activeImage: Assets.imagesActiveElement,
-          inActiveImage: Assets.imagesElement3,
-        ),
-        BottomNavigationBarEntity(
-          name: 'سلة التسوق',
-          activeImage: Assets.imagesActiveCart,
-          inActiveImage: Assets.imagesShoppingCart,
-        ),
-        BottomNavigationBarEntity(
-          name: 'حسابي',
-          activeImage: Assets.imagesActivePerson,
-          inActiveImage: Assets.imagesPerson,
-        ),
-      ];
+      BottomNavigationBarEntity(
+        name: 'الرئيسية',
+        activeImage: Assets.imagesActiveHome,
+        inActiveImage: Assets.imagesHome,
+      ),
+      BottomNavigationBarEntity(
+        name: 'المنتجات',
+        activeImage: Assets.imagesActiveElement,
+        inActiveImage: Assets.imagesElement3,
+      ),
+      BottomNavigationBarEntity(
+        name: 'سلة التسوق',
+        activeImage: Assets.imagesActiveCart,
+        inActiveImage: Assets.imagesShoppingCart,
+      ),
+      BottomNavigationBarEntity(
+        name: 'حسابي',
+        activeImage: Assets.imagesActivePerson,
+        inActiveImage: Assets.imagesPerson,
+      ),
+    ];

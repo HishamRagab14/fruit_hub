@@ -21,7 +21,8 @@ class OrDivider extends StatelessWidget {
             color: const Color(0xff0C0D0D),
           ),
         ),
-        const Expanded(child: Divider(
+        const Expanded(
+            child: Divider(
           indent: 18,
         )),
       ],

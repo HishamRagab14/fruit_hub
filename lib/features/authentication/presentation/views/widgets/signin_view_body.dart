@@ -37,8 +37,8 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               const SizedBox(
                 height: 24,
               ),
-               CustomTextFormField(
-                onSaved: (value){
+              CustomTextFormField(
+                onSaved: (value) {
                   email = value!;
                 },
                 isObsecure: false,
@@ -48,8 +48,8 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               const SizedBox(
                 height: 16,
               ),
-               CustomPasswordTextFormField(
-                onSaved: (value){
+              CustomPasswordTextFormField(
+                onSaved: (value) {
                   password = value!;
                 },
                 // isObsecure: false,
@@ -70,17 +70,16 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               const SizedBox(height: 33),
               CustomButton(
                 onPressed: () {
-                  if(formKey.currentState!.validate()){
+                  if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     BlocProvider.of<SigninCubit>(context)
-                      .signInWithEmailAndPassword(
-                          email: email, password: password);
+                        .signInWithEmailAndPassword(
+                            email: email, password: password);
                   } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;
                     });
                   }
-                  
                 },
                 text: 'تسجيل دخول',
               ),
@@ -91,8 +90,8 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               const SizedBox(
                 height: 16,
               ),
-               SocialSigninButton(
-                onPressed: (){
+              SocialSigninButton(
+                onPressed: () {
                   BlocProvider.of<SigninCubit>(context).signinWithGoogle();
                 },
                 image: Assets.imagesGoogleIcon,
@@ -101,8 +100,8 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               const SizedBox(
                 height: 16,
               ),
-               SocialSigninButton(
-                onPressed: (){
+              SocialSigninButton(
+                onPressed: () {
                   BlocProvider.of<SigninCubit>(context).signinWithApple();
                 },
                 image: Assets.imagesAppleIcon,
@@ -111,7 +110,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               const SizedBox(
                 height: 16,
               ),
-               SocialSigninButton(
+              SocialSigninButton(
                 onPressed: () {
                   BlocProvider.of<SigninCubit>(context).signInWithFacebook();
                 },

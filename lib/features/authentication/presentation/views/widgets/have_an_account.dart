@@ -7,10 +7,10 @@ class HaveAnAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-         Text(
+        Text(
           'تمتلك حساب بالفعل؟',
           style: TextStyles.semiBold16.copyWith(color: const Color(0xff949D9E)),
         ),

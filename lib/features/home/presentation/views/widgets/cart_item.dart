@@ -16,9 +16,9 @@ class CartItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CartItemCubit, CartItemState>(
-      buildWhen: (previous,current){
-        if(current is CartItemUpdated){
-          if( current.cartItem == cartItemEntity){
+      buildWhen: (previous, current) {
+        if (current is CartItemUpdated) {
+          if (current.cartItem == cartItemEntity) {
             return true;
           }
         }

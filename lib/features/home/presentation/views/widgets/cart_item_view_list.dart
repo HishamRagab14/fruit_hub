@@ -10,13 +10,15 @@ class CartItemViewList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverList.separated(
       separatorBuilder: (context, index) => const CustomDivider(),
-      itemBuilder: (context, index) =>  Padding(
-        padding: const EdgeInsets.only(left: 16,),
-        child: CartItem(cartItemEntity: cartItemEntity[index],),
+      itemBuilder: (context, index) => Padding(
+        padding: const EdgeInsets.only(
+          left: 16,
+        ),
+        child: CartItem(
+          cartItemEntity: cartItemEntity[index],
+        ),
       ),
       itemCount: cartItemEntity.length,
     );
   }
 }
-
-

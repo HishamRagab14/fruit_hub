@@ -53,7 +53,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             maintainAnimation: true,
             maintainState: true,
             visible: currentPage == 1 ? true : false,
-            child:  CustomButton(
+            child: CustomButton(
               text: 'ابدأ الان',
               onPressed: () {
                 Prefs.setBool(kIsOnBoardingViewSeen, true);

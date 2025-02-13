@@ -19,10 +19,10 @@ class InActiveShippingItemDot extends StatelessWidget {
           ),
         ),
       ),
-      
     );
   }
 }
+
 class ActiveShippingItemDot extends StatelessWidget {
   const ActiveShippingItemDot({
     super.key,
@@ -42,7 +42,6 @@ class ActiveShippingItemDot extends StatelessWidget {
           ),
         ),
       ),
-      
     );
   }
 }

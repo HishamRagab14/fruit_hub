@@ -16,9 +16,10 @@ class ReviewViewBody extends StatelessWidget {
           Row(
             children: [
               SizedBox(
-                height: 50,
-                child: Image.asset(Assets.imagesProfileImage)),
-                const SizedBox(width: 10,),
+                  height: 50, child: Image.asset(Assets.imagesProfileImage)),
+              const SizedBox(
+                width: 10,
+              ),
               const Flexible(
                 child: SearchTextField(
                   hintText: 'اكتب التعليق..',

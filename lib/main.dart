@@ -12,7 +12,7 @@ import 'package:fruits_hub_app/firebase_options.dart';
 
 import 'generated/l10n.dart';
 
-void main() async{
+void main() async {
   Bloc.observer = CustomBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -29,11 +29,10 @@ class FruitHub extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme : ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
-        scaffoldBackgroundColor: Colors.white,
-        fontFamily: 'Cairo'
-      ),
+      theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
+          scaffoldBackgroundColor: Colors.white,
+          fontFamily: 'Cairo'),
       localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -41,8 +40,6 @@ class FruitHub extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-
-      
       locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,

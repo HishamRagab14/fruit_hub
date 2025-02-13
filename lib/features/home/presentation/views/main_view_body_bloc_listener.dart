@@ -17,7 +17,10 @@ class MainViewBodyBlocListener extends StatelessWidget {
     return BlocListener<CartCubit, CartState>(
       listener: (context, state) {
         if (state is CartItemAdded) {
-          showBar(context, 'تم اضافه المنتج الي السله',);
+          showBar(
+            context,
+            'تم اضافه المنتج الي السله',
+          );
         }
         if (state is CartItemRemoved) {
           showBar(context, 'تم حذف المنتج من السله');

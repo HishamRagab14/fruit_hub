@@ -15,12 +15,13 @@ class BestSellerHeader extends StatelessWidget {
           style: TextStyles.bold16,
         ),
         GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.pushNamed(context, BestSellingView.routeName);
           },
           child: Text(
             'المزيد',
-            style: TextStyles.regular13.copyWith(color: const Color(0xff949D9E)),
+            style:
+                TextStyles.regular13.copyWith(color: const Color(0xff949D9E)),
           ),
         )
       ],

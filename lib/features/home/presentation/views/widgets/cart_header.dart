@@ -11,12 +11,12 @@ class CartHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: const Color(0xffEBF9F1),
-      width: double.infinity, 
+      width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 20),
-      child:  Center(
+      child: Center(
         child: Text(
           'لديك ${context.watch<CartCubit>().cartEntity.cartItems.length} منتجات فى سله  التسوق ',
-          style: TextStyles.regular13.copyWith(color: AppColors.primaryColor  ),
+          style: TextStyles.regular13.copyWith(color: AppColors.primaryColor),
         ),
       ),
     );

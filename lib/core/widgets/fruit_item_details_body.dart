@@ -34,7 +34,7 @@ class FruitItemDetailsBody extends StatelessWidget {
               child: Container(
                 height: 260, // Background height
                 width: double.infinity,
-                color: Colors.grey.shade200, 
+                color: Colors.grey.shade200,
               ),
             ),
             Positioned(
@@ -97,7 +97,8 @@ class FruitItemDetailsBody extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 20,),
+          height: 20,
+        ),
         // const Spacer(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),

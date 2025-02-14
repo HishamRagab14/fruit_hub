@@ -21,6 +21,6 @@ factory Amount.fromEnity(OrderEntity entity) {
   Map<String, dynamic> toJson() => {
         'total': total,
         'currency': currency,
-        'details': details?.toJson(),
+        'details': details!.toJson(),
       };
 }

@@ -1,10 +1,11 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:fruits_hub_app/core/helper_functions/show_error_bar.dart';
+import 'package:fruits_hub_app/core/utils/app_keys.dart';
 import 'package:fruits_hub_app/core/widgets/custom_button.dart';
 import 'package:fruits_hub_app/features/check_out/domain/entities/order_entity.dart';
+import 'package:fruits_hub_app/features/check_out/domain/entities/paypal_payment_entity/paypal_payment_entity.dart';
 import 'package:fruits_hub_app/features/check_out/presentation/manager/add_order/add_order_cubit.dart';
 import 'package:fruits_hub_app/features/check_out/presentation/views/widgets/check_out_steps.dart';
 import 'package:fruits_hub_app/features/check_out/presentation/views/widgets/check_out_steps_page_view.dart';
@@ -115,7 +116,7 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
         return 'التالي';
 
       case 2:
-        return 'ادفع عن طريق PayBal';
+        return 'ادفع عن طريق Paypal';
       default:
         return 'التالي';
     }
@@ -135,49 +136,24 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
   }
 
   void _processPayment(BuildContext context) {
+    var orderEntity = context.read<OrderEntity>();
+    PaypalPaymentEntity paypalPaymentEntity =
+        PaypalPaymentEntity.fromEntity(orderEntity);
+    log(paypalPaymentEntity.toJson().toString());
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (BuildContext context) => PaypalCheckoutView(
           sandboxMode: true,
-          clientId: "",
-          secretKey: "",
-          transactions: const [
-            {
-              "amount": {
-                "total": '70',
-                "currency": "USD",
-                "details": {
-                  "subtotal": '70',
-                  "shipping": '0',
-                  "shipping_discount": 0
-                }
-              },
-              "description": "The payment transaction description.",
-              // "payment_options": {
-              //   "allowed_payment_method":
-              //       "INSTANT_FUNDING_SOURCE"
-              // },
-              "item_list": {
-                "items": [
-                  {
-                    "name": "Apple",
-                    "quantity": 4,
-                    "price": '5',
-                    "currency": "USD"
-                  },
-                  {
-                    "name": "Pineapple",
-                    "quantity": 5,
-                    "price": '10',
-                    "currency": "USD"
-                  }
-                ],
-              }
-            }
+          clientId: kPaypalClientId,
+          secretKey: kPaypalSecret,
+          transactions: [
+            paypalPaymentEntity.toJson(),
           ],
           note: "Contact us for any questions on your order.",
           onSuccess: (Map params) async {
             log("onSuccess: $params");
+            Navigator.pop(context);
+            showBar(context, 'تم الدفع بنجاح');
           },
           onError: (error) {
             log("onError: $error");

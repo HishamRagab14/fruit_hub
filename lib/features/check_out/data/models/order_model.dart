@@ -34,6 +34,8 @@ class OrderModel {
       'orderProductModel': orderProductModel.map((e) => e.toJson()).toList(),
       'paymentMethod': paymentMethod,
       'totalPrice': totalPrice,
+      'status': 'pending',
+      'date': DateTime.now().toString(),
     };
   }
 }

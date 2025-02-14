@@ -55,6 +55,28 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
               height: 20,
             ),
             CheckOutSteps(
+              onTap: (index) {
+                if (index == 0) {
+                  pageController.animateToPage(
+                    index,
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeIn,
+                  );
+                } else if (index == 1) {
+                  var orderEntity = context.read<OrderEntity>();
+                  if (orderEntity.payCash != null) {
+                    pageController.animateToPage(
+                      index,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeIn,
+                    );
+                  } else {
+                    showBar(context, 'يرجي تحديد طريقة الدفع');
+                  }
+                } else {
+                  _handleAddressSectionValidation();
+                }
+              },
               pageController: pageController,
               currentIndex: currentPageIndex,
               // onTap: (index) {
@@ -136,6 +158,7 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
   }
 
   void _processPayment(BuildContext context) {
+    var addOrderCubit = context.read<AddOrderCubit>();
     var orderEntity = context.read<OrderEntity>();
     PaypalPaymentEntity paypalPaymentEntity =
         PaypalPaymentEntity.fromEntity(orderEntity);
@@ -153,11 +176,13 @@ class _CheckOutViewBodyState extends State<CheckOutViewBody> {
           onSuccess: (Map params) async {
             log("onSuccess: $params");
             Navigator.pop(context);
-            showBar(context, 'تم الدفع بنجاح');
+            addOrderCubit.addOrder(order: orderEntity);
+            // showBar(context, 'تم الدفع بنجاح');
           },
           onError: (error) {
             log("onError: $error");
             Navigator.pop(context);
+            showBar(context, 'حدث خطأ أثناء عملية الدفع');
           },
           onCancel: () {
             log('cancelled:');
